@@ -7,11 +7,26 @@ const HomePage = () => {
 	const [widgetData, setWidgetData] = useState([]);
 	const [mapData, setMapData] = useState([]);
 
-	const { recovered, positive, death } = widgetData;
+	const { recovered, positive, death, dateChecked } = widgetData;
+
+	const modifyDate = (timestamp) => {
+		if (timestamp) {
+			const oldDate = timestamp.toString().split('T');
+			return (
+				oldDate[0].slice(5).replace('-', '/') + '/' + oldDate[0].slice(0, 4)
+			);
+		} else {
+			return timestamp;
+		}
+	};
 
 	useEffect(() => {
-		const requestOne = axios.get('https://api.covidtracking.com/v1/us/current.json');
-		const requestTwo = axios.get('https://api.covidtracking.com/v1/states/current.json');
+		const requestOne = axios.get(
+			'https://api.covidtracking.com/v1/us/current.json'
+		);
+		const requestTwo = axios.get(
+			'https://api.covidtracking.com/v1/states/current.json'
+		);
 		const fetchData = async () => {
 			await axios
 				.all([requestOne, requestTwo])
@@ -54,6 +69,7 @@ const HomePage = () => {
 				/>
 			</div>
 			<USMap stats={mapData} />
+			<p className='updated'>Last Updated: {modifyDate(dateChecked)}</p>
 		</div>
 	);
 };

@@ -688,6 +688,15 @@ $deathsAccent: hsl(355, 100%, 96%);
 	}
 }
 
+.updated {
+	display: flex;
+	margin-top: .75rem;
+	flex-direction: row-reverse;
+	font-size: .75rem;
+	font-family: 'Nunito', sans-serif;
+	color: #737883;
+}
+
 @keyframes fadeOut {
 	0% {
 		opacity: 1;
