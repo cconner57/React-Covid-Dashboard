@@ -2,10 +2,9 @@ import React from 'react';
 
 const InfoWidget = ({ description, stats, classStyle, icon }) => {
 	const addCommas = (x) => {
-		let string = '' + x;
-		return string.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+		return x.toLocaleString('en-US', { minimumFractionDigits: 0 });
 	};
-	
+
 	return (
 		<div className='widget'>
 			<div className={`icon ${classStyle}`}>

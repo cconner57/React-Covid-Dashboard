@@ -9,9 +9,10 @@ const SettingsWidget = () => {
 	const {TotalConfirmed, TotalRecovered, TotalDeaths} = covidData
 
 	const addCommas = (x) => {
-		let string = '' + x
-		return string.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	}
+		if(x) {
+			return x.toLocaleString('en-US', { minimumFractionDigits: 0 });
+		}
+	};
 
 	useEffect(() => {
 		const fetchData = async () => {

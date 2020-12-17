@@ -59,6 +59,14 @@ const USMap = ({ stats }) => {
 		WY: 'Wyoming',
 	};
 
+	const addCommas = (x) => {
+		if(x) {
+			return x.toLocaleString('en-US', { minimumFractionDigits: 0 });
+		} else {
+			return x
+		}
+	};
+
 	useEffect(() => {
 		const map = document.querySelectorAll('[aria-label="Map of USA"] > path');
 		const state = document.querySelector('.state-info');
@@ -102,25 +110,25 @@ const USMap = ({ stats }) => {
 					<p>
 						{findState === undefined
 							? 'Not Available'
-							: findState.recovered === null
+							: addCommas(findState.recovered) === null
 							? 'Not Available'
-							: findState.recovered}
+							: addCommas(findState.recovered)}
 					</p>
 					<p>Infected: </p>
 					<p>
 						{findState === undefined
 							? 'Not Available'
-							: findState.positive === null
+							: addCommas(findState.positive) === null
 							? 'Not Available'
-							: findState.positive}
+							: addCommas(findState.positive)}
 					</p>
 					<p>Deaths: </p>
 					<p>
 						{findState === undefined
 							? 'Not Available'
-							: findState.death === null
+							: addCommas(findState.death) === null
 							? 'Not Available'
-							: findState.death}
+							: addCommas(findState.death)}
 					</p>
 				</span>
 				<h5>

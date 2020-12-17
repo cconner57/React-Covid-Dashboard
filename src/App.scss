@@ -149,12 +149,14 @@ $deathsAccent: hsl(355, 100%, 96%);
 	background: $accentBackground;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 	border-radius: 6px;
-	width: 80%;
+	width: 65vw;
+	height: 70vh;
 	margin: 0 auto;
 	.svg-map {
 		fill: white;
 		stroke: #445069;
-		margin: 25px;
+		margin: 1rem 5rem;
+		height: 95%;;
 	}
 	path {
 		transition: all 0.5s;

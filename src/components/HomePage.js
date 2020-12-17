@@ -10,8 +10,8 @@ const HomePage = () => {
 	const { recovered, positive, death } = widgetData;
 
 	useEffect(() => {
-		const requestOne = axios.get('http://covidtracking.com/api/us');
-		const requestTwo = axios.get('https://covidtracking.com/api/states');
+		const requestOne = axios.get('https://api.covidtracking.com/v1/us/current.json');
+		const requestTwo = axios.get('https://api.covidtracking.com/v1/states/current.json');
 		const fetchData = async () => {
 			await axios
 				.all([requestOne, requestTwo])
