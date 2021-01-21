@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
@@ -17,10 +17,13 @@ const Signup = () => {
 
 	const handleForm = async () => {
 		try {
-			const response = await axios.post('http://localhost:5000/signup', {
-				email: form.email,
-				password: form.password,
-			});
+			const response = await axios.post(
+				'https://covid-dashboard3.herokuapp.com/signup',
+				{
+					email: form.email,
+					password: form.password,
+				}
+			);
 			sessionStorage.setItem('loggedIn', true);
 			console.log(response);
 			history.push('/');
